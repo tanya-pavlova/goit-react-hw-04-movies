@@ -6,6 +6,7 @@ import {
   Route,
   useHistory,
   useLocation,
+  Switch,
 } from 'react-router-dom';
 import moviesApi from '../../services/Api';
 import Spinner from '../../Components/Loader/Loader';
@@ -111,13 +112,15 @@ export default function MovieDetailsView() {
             </p>
           </div>
           <Suspense fallback={<Spinner />}>
-            <Route path="/movies/:moviesId/cast">
-              <Cast />
-            </Route>
+            <Switch>
+              <Route path="/movies/:moviesId/cast">
+                <Cast />
+              </Route>
 
-            <Route path="/movies/:moviesId/reviews">
-              <Review />
-            </Route>
+              <Route path="/movies/:moviesId/reviews">
+                <Review />
+              </Route>
+            </Switch>
           </Suspense>
         </div>
       </div>

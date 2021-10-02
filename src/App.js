@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Spinner from './Components/Loader/Loader';
 import s from './app.module.css';
 import { ToastContainer } from 'react-toastify';
@@ -25,9 +25,10 @@ export default function App() {
           <Route path="/movies/:movieId">
             <MovieDetailView />
           </Route>
-          <Route>
+          <Route path="/">
             <NotFound />
           </Route>
+          <Redirect to="/" />
         </Switch>
       </Suspense>
       <ToastContainer />
